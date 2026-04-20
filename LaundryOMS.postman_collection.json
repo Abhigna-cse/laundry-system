@@ -1,0 +1,82 @@
+{
+  "info": {
+    "name": "Laundry Order Management System",
+    "description": "API collection for the Laundry OMS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Create Order",
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "http://localhost:5000/orders", "host": ["localhost"], "port": "5000", "path": ["orders"]},
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"customer_name\": \"Priya Sharma\",\n  \"phone\": \"9876543210\",\n  \"garments\": [\n    { \"name\": \"saree\", \"quantity\": 2 },\n    { \"name\": \"shirt\", \"quantity\": 3 },\n    { \"name\": \"pants\", \"quantity\": 1 }\n  ]\n}"
+        }
+      }
+    },
+    {
+      "name": "2. Get All Orders",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:5000/orders", "host": ["localhost"], "port": "5000", "path": ["orders"]}
+      }
+    },
+    {
+      "name": "3. Filter by Status",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:5000/orders?status=RECEIVED", "host": ["localhost"], "port": "5000", "path": ["orders"], "query": [{"key": "status", "value": "RECEIVED"}]}
+      }
+    },
+    {
+      "name": "4. Search by Name/Phone",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:5000/orders?search=Priya", "host": ["localhost"], "port": "5000", "path": ["orders"], "query": [{"key": "search", "value": "Priya"}]}
+      }
+    },
+    {
+      "name": "5. Filter by Garment",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:5000/orders?garment=saree", "host": ["localhost"], "port": "5000", "path": ["orders"], "query": [{"key": "garment", "value": "saree"}]}
+      }
+    },
+    {
+      "name": "6. Update Order Status",
+      "request": {
+        "method": "PATCH",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": {"raw": "http://localhost:5000/orders/ORD-REPLACE_ME/status", "host": ["localhost"], "port": "5000", "path": ["orders", "ORD-REPLACE_ME", "status"]},
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": \"PROCESSING\"\n}"
+        }
+      }
+    },
+    {
+      "name": "7. Get Single Order",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:5000/orders/ORD-REPLACE_ME", "host": ["localhost"], "port": "5000", "path": ["orders", "ORD-REPLACE_ME"]}
+      }
+    },
+    {
+      "name": "8. Dashboard",
+      "request": {
+        "method": "GET",
+        "url": {"raw": "http://localhost:5000/dashboard", "host": ["localhost"], "port": "5000", "path": ["dashboard"]}
+      }
+    },
+    {
+      "name": "9. Delete Order",
+      "request": {
+        "method": "DELETE",
+        "url": {"raw": "http://localhost:5000/orders/ORD-REPLACE_ME", "host": ["localhost"], "port": "5000", "path": ["orders", "ORD-REPLACE_ME"]}
+      }
+    }
+  ]
+}
